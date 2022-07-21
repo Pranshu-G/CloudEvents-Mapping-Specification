@@ -84,6 +84,7 @@ An incoming CloudEvent for modifying policy could be:
 }
 ```
 
+Would look like
 
 ```
 {
@@ -113,4 +114,4 @@ An incoming CloudEvent for modifying policy could be:
       }
     }
   }
-gi```
+```
