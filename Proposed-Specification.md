@@ -19,12 +19,10 @@ An example of an incoming CloudEvent to modify a thing in ditto could be
    "specversion" : "1.0",
     "type" : "com.something.ditto",
     "source" : "http://sensor.com/sensor01",
-    "subject" : "commands/modify",
-	"id" : "my.sensor:sensor01",
-    "datacontenttype": "application/CloudEvents"
+  	"id" : "someId"
+    "subject":"my.sensors/sensor01/things/twin/commands/modify"
+    "datacontenttype": "application/json"
     “data”:{  
-	  "channel":"twin",
-	  "entity":"things",   
       "path":"/features/car/properties/temperature/value",  
       "value": 54  
   }
@@ -38,7 +36,7 @@ which would be mapped to ditto protocol and look like this:
 ```
 {  
       "topic": "my.sensors/sensor01/things/twin/commands/modified",  
-      "headers": { "content-type": "application/CloudEvents" },  
+      "headers": { "content-type": "application/json" },  
       "path":"/features/car/properties/temperature/value",  
       "value": 54  
   }
@@ -54,9 +52,9 @@ An incoming CloudEvent for modifying policy could be:
    "specversion" : "1.0",
     "type" : "com.something.ditto",
     "source" : "http://sensor.com/sensor01",
-    "subject" : "commands/modify",
-	"id" : "org.eclipse.ditto:the_policy_id",
-    "datacontenttype": "application/CloudEvents"
+	  "id" : "some-other-id",
+    "subject":"org.eclipse.ditto/the_policy_id/policies/commands/modify"
+    "datacontenttype": "application/json"
     “data”:{  
 	  "channel":"twin",
 	  "entity":"policies",   
